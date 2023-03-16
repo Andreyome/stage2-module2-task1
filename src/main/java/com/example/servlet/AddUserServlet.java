@@ -15,7 +15,12 @@ public class AddUserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //String url = req.getRequestURL().toString();
     RequestDispatcher requestDispatcher = req.getRequestDispatcher("jsp/add.jsp");
+    try {
         requestDispatcher.forward(req, resp);
+    }
+    catch (ServletException | IOException e){
+        e.printStackTrace();
+    }
 }
 
     @Override
